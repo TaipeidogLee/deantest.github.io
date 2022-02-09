@@ -1,5 +1,53 @@
 <html>
+  
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1111714609648758',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v10.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+  
+  
+  function login() {
+           FB.login(function (response) {
+               console.log(response);
+ 
+ 
+           }, { scope: 'email, public_profile, read_audience_network_insights, read_insights' });
+ 
+       }
+
+        function statusCheck() {
+            FB.getLoginStatus(function (response) {
+                console.log(response);
+                accessToken = response.authResponse.accessToken;
+                console.log('token:' + accessToken);
+            });
+
+        }
+</script>
   <body>
-    Hi
+    
+       <button onclick="login()">
+       Login
+    </button><br /><br /><br />
+ <button onclick="statusCheck()">
+       status check/reading token
+    </button> <br /><br /><br />
+   
   </body>
 </html>
