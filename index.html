@@ -21,6 +21,12 @@
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
   
+  function logOut() {
+  FB.logout(function(response) {
+  // user is now logged out
+     console.log(response);
+});
+  }
   
   function login() {
            FB.login(function (response) {
@@ -44,6 +50,9 @@
     
        <button onclick="login()">
        Login
+    </button><br /><br /><br />
+           <button onclick="logOut()">
+       Logout
     </button><br /><br /><br />
  <button onclick="statusCheck()">
        status check/reading token
