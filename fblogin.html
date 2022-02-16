@@ -48,18 +48,24 @@
         'Thanks for logging in, ' + response.name + '!';
     });
   }
-
+function logOut() {
+  FB.logout(function(response) {
+  // user is now logged out
+     console.log(response);
+});
 </script>
 
 
 <!-- The JS SDK Login Button -->
 
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+<fb:login-button scope="public_profile,email,read_audience_network_insights,read_insights" onlogin="checkLoginState();">
 </fb:login-button>
 
 <div id="status">
 </div>
-
+<button onclick="logOut()">
+       Logout
+    </button>
 <!-- Load the JS SDK asynchronously -->
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 </body>
