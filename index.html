@@ -3,10 +3,10 @@
 <script>
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1111714609648758',
+      appId      : '1005501260037469',
       cookie     : true,
       xfbml      : true,
-      version    : 'v10.0'
+      version    : 'v14.0'
     });
       
     FB.AppEvents.logPageView();   
@@ -41,7 +41,8 @@
             FB.getLoginStatus(function (response) {
                 console.log(response);
                 accessToken = response.authResponse.accessToken;
-                console.log('token:' + accessToken);
+                //console.log('token:' + accessToken);
+              document.getElementById('access-token').innerHTML = accessToken;
             });
 
         }
@@ -54,9 +55,10 @@
            <button onclick="logOut()">
        Logout
     </button><br /><br /><br />
+    
  <button onclick="statusCheck()">
        status check/reading token
     </button> <br /><br /><br />
-   
+   <<span id="access-token"></span>
   </body>
 </html>
